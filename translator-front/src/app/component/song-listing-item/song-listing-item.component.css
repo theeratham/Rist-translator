@@ -1,0 +1,43 @@
+.my_listing {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.my_listing:hover {
+  background-color: rgba(185, 185, 185, 0.228);
+}
+.my_listing:hover > .my_listing-index {
+  display: none;
+}
+
+.my_listing-play_button {
+  display: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 24px;
+}
+
+.my_listing:hover > .my_listing-play_button {
+  display: block;
+}
+
+.my_listing-index {
+  font-family: monospace;
+  width: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.my_listing-duration {
+  flex: 1;
+  text-align: right;
+  font-size: smaller;
+}
+.my_listing-img {
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+}

@@ -1,0 +1,16 @@
+<div class="album_recommend-container">
+  <div class="linkflex">
+    <h3 *ngIf="showAllHref">
+      <a class="text-light header_link" [routerLink]="showAllHref">{{
+        title
+      }}</a>
+    </h3>
+    <h3 *ngIf="!showAllHref" class="text-light">
+      {{ title }}
+    </h3>
+    <!-- <a class="show_all_link text-light font-weight-bold" href="">Show all</a> -->
+  </div>
+  <div class="album_recommend-inner">
+    <ng-container *ngIf="content" [ngTemplateOutlet]="content"></ng-container>
+  </div>
+</div>

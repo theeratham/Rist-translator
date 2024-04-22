@@ -1,0 +1,28 @@
+.linkflex > h3 {
+  flex: 1 1 0%;
+}
+
+.show_all_link {
+  text-decoration: none;
+}
+
+.show_all_link:hover {
+  text-decoration: underline;
+}
+
+.header_link {
+  text-decoration: none;
+}
+
+.header_link:hover {
+  text-decoration: underline;
+}
+
+.song_listing-inner {
+  display: flex;
+}
+
+.linkflex {
+  display: flex;
+  align-items: center;
+}

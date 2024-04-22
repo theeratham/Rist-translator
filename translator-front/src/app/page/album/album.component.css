@@ -1,0 +1,27 @@
+.artist_header {
+  height: 20vh;
+}
+
+.bgfilter {
+  backdrop-filter: blur(20px);
+  height: 100%;
+}
+
+.before_name_gap {
+  height: 4vh;
+}
+
+.my_flex {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.album_img {
+  height: 14vh;
+  border-radius: 8px;
+}
+
+.album_name {
+  width: fit-content;
+}

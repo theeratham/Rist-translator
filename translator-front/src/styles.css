@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+app-artist,
+app-home,
+app-playlist-info,
+app-policy,
+app-lyrics,
+app-playlist,
+app-register,
+app-search,
+app-album,
+app-song,
+app-user-profile {
+  display: contents;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  overflow-y: overlay;
+  height: 100vh;
+}
+
+.home-full {
+  flex: 1 1 0%;
+  overflow-y: overlay;
+}
+
+.rist-btn {
+  background-color: #ebff00;
+  border-radius: 20px;
+  border: 0px;
+}
+.rist-btn:hover {
+  background-color: #b5c50a;
+}
+.rist-outline-btn {
+  color: #ebff00;
+  background-color: transparent;
+  border: 1px solid #ebff00;
+  padding: 0.375rem 0.75rem;
+  border-radius: 10px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.rist-outline-btn:hover {
+  color: black;
+  background-color: #ebff00;
+  border-color: #ebff00;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.primary-bg {
+  background: #282828;
+}
+
+.modal-header {
+  background-color: #282828;
+  color: aliceblue;
+}
+
+.modal-body {
+  background-color: #282828;
+  color: aliceblue;
+}
+
+.modal-footer {
+  background-color: #282828;
+  color: aliceblue;
+}

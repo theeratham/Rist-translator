@@ -1,0 +1,28 @@
+<div class="album_recommend_item text-light">
+  <div class="album_recommend_item-image_container">
+    <a [routerLink]="albumHref">
+      <img [src]="albumImageSrc" class="" alt="albumName" />
+    </a>
+    <card-play-button
+      [list]="songs"
+      class="album_recommend_item-play_button"
+    ></card-play-button>
+  </div>
+  <div class="album_recommend_item-info">
+    <div class="album_recommend_item-info-title">
+      <a [routerLink]="albumHref" class="text-light">
+        {{ albumName }}
+      </a>
+    </div>
+    <div class="pt-1 bottom-info">
+      <div class="album_recommend_item-info-artist">
+        <a [routerLink]="artistLink">
+          {{ artistName }}
+        </a>
+      </div>
+      <div class="album_recommend_item-info-artist">
+        {{ releasedYear }}
+      </div>
+    </div>
+  </div>
+</div>

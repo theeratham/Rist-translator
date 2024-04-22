@@ -1,0 +1,20 @@
+<div class="playlist_recommend_item text-light">
+  <div class="playlist_recommend_item-image_container">
+    <a [routerLink]="playlistHref">
+      <img [src]="playlistImageSrc" class="" alt="playlist name" />
+    </a>
+    <button class="playlist_recommend_item-play_button">
+      <i class="bi bi-play-fill"></i>
+    </button>
+  </div>
+  <div class="playlist_recommend_item-info">
+    <div class="playlist_recommend_item-info-title">
+      <a [routerLink]="playlistHref" class="text-light">
+        {{ playlistName }}
+      </a>
+    </div>
+    <div class="pt-1 bottom-info">
+      <div class="playlist_recommend_item-info-artist">Playlist</div>
+    </div>
+  </div>
+</div>

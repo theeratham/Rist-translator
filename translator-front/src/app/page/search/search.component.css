@@ -1,0 +1,34 @@
+.found-none {
+  height: 240px;
+  width: 100%;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.big-icon {
+  font-size: 80px;
+}
+
+.spinner-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-big {
+  width: 80px;
+  height: 80px;
+}
+
+.search-inner {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}

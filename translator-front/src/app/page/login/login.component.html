@@ -1,0 +1,60 @@
+<div class="login-bg primary-bg">
+  <div class="container">
+    <div class="col">
+      <div class="row pt-3 justify-content-center">
+        <img class="" width="92" src="assets/icon/rist_logo_1.png" />
+      </div>
+      <div class="row justify-content-center">
+        <div class="login-block mt-4 col-md-6 p-3">
+          <div class="login-background"></div>
+          <div class="login-shadow"></div>
+          <div class="login-above-text text-center">
+            <h1>Login</h1>
+            <h3>Sign in to your account.</h3>
+          </div>
+          <form (ngSubmit)="login()">
+            <div
+              *ngIf="loginFailed"
+              class="alert alert-danger mt-2"
+              role="alert"
+            >
+              Username or password is incorrect
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <div class="my-input">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  [(ngModel)]="request.username"
+                  class="form-control"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <div class="my-input">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="request.password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+            </div>
+            <button type="submit" class="rist-btn btn-block mb-3 px-3 py-2">
+              Login
+            </button>
+            <a routerLink="/register">sign up</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

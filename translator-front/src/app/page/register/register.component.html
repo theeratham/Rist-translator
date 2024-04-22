@@ -1,0 +1,108 @@
+<div class="register-bg primary-bg">
+  <div class="container">
+    <div class="col">
+      <div class="row pt-3 justify-content-center">
+        <img class="" width="92" src="assets/icon/rist_logo_1.png" />
+      </div>
+      <div class="row mt-4 justify-content-center">
+        <div class="register-block col-md-6 p-3">
+          <div class="register-background"></div>
+          <div class="register-shadow"></div>
+          <div class="register-above-text">
+            <h1>Sign Up</h1>
+          </div>
+          <form (ngSubmit)="register()">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="name">Name: </label>
+                <div class="my-input">
+                  <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    [(ngModel)]="request.firstname"
+                    class="form-control"
+                    placeholder="Firstname"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="lastanme">Lastname:</label>
+                <div class="my-input">
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    [(ngModel)]="request.lastname"
+                    class="form-control"
+                    placeholder="Lastname"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <div class="my-input">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  [(ngModel)]="request.username"
+                  class="form-control"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <div class="my-input">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="request.email"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <div class="my-input">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="request.password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="policies" id="policies" [(ngModel)]="policies" />
+              <label for="policies"> accept our
+                <a routerLink="/policy">privacy policy</a>
+              </label>
+            </div>
+            <button type="submit" class="rist-btn btn-block px-3 py-2">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="back-btn rist-btn mt-3 px-3 py-2"
+        (click)="back()"
+      >
+        back
+      </button>
+    </div>
+  </div>
+</div>

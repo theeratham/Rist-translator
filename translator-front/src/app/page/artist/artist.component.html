@@ -1,0 +1,35 @@
+<div class="home-full">
+  <div class="artist_header text-light">
+    <div class="before_name_gap"></div>
+    <div class="my_flex container">
+      <img
+        class="artist_img"
+        [src]="artist?.picturePath"
+        [alt]="artist?.name"
+      />
+      <h1 class="artist_name">{{ artist?.name }}</h1>
+    </div>
+  </div>
+  <div class="container text-light">
+    <div>
+      <h3 class="pt-4">Popular</h3>
+      <div class="my_listing-container">
+        <song-listing-item
+          *ngFor="let song of songs; let i = index"
+          (playButtonPressedEvent)="handleSongListPlayEvent(i)"
+          [index]="i + 1"
+          [song]="song"
+        ></song-listing-item>
+      </div>
+    </div>
+    <div>
+      <h3 class="pt-4">Albums</h3>
+      <div class="my_listing-container">
+        <album-recommend-item
+          *ngFor="let album of albums"
+          [album]="album"
+        ></album-recommend-item>
+      </div>
+    </div>
+  </div>
+</div>

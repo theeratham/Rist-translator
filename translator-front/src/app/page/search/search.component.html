@@ -1,0 +1,59 @@
+<div class="container pt-4 home-full">
+  <h1 class="text-light pb-3">Search Results for {{ searchQuery }}</h1>
+  <div class="spinner-container" *ngIf="isLoading">
+    <div class="spinner-grow text-light spinner-big" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="search-inner">
+    <div class="found-none" *ngIf="foundNone">
+      <i class="bi bi-emoji-frown-fill text-light big-icon"></i>
+      <h2 class="text-light">No results found</h2>
+    </div>
+
+    <search-group-container
+      *ngIf="searchResults.songs.length"
+      [isColumnLayout]="true"
+      title="Songs"
+    >
+      <ng-template #content>
+        <song-listing-item
+          *ngFor="let song of searchResults.songs; let i = index"
+          (playButtonPressedEvent)="handleSongListPlayEvent(i)"
+          [song]="song"
+        ></song-listing-item>
+      </ng-template>
+    </search-group-container>
+    <search-group-container
+      *ngIf="searchResults.artists.length"
+      title="Artists"
+    >
+      <ng-template #content>
+        <artist-recommend-item
+          *ngFor="let artist of searchResults.artists"
+          [artist]="artist"
+        ></artist-recommend-item>
+      </ng-template>
+    </search-group-container>
+    <search-group-container *ngIf="searchResults.albums.length" title="Albums">
+      <ng-template #content>
+        <album-recommend-item
+          *ngFor="let album of searchResults.albums; let i = index"
+          [album]="album"
+        ></album-recommend-item>
+      </ng-template>
+    </search-group-container>
+    <search-group-container
+      *ngIf="searchResults.lyrics.length"
+      title="lyrics"
+    >
+      <ng-template #content>
+        <song-listing-item
+          *ngFor="let song of lyricsSongs; let i = index"
+          (playButtonPressedEvent)="handleLyricsEvent(i)"
+          [song]="song"
+        ></song-listing-item>
+      </ng-template>
+    </search-group-container>
+  </div>
+</div>

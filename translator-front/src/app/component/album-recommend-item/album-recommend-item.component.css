@@ -1,0 +1,61 @@
+.album_recommend_item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.album_recommend_item {
+  width: 160px;
+  height: 210px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 6px 10px;
+  border-radius: 8px;
+}
+
+.album_recommend_item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* link remove blue color */
+.album_recommend_item a {
+  text-decoration: none;
+}
+
+.bottom-info {
+  font-size: smaller;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(169, 169, 169);
+}
+
+.album_recommend_item-image_container {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.album_recommend_item-play_button {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  transition: cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+
+  transform: scale(0.8);
+}
+
+.album_recommend_item:hover .album_recommend_item-play_button {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.album_recommend_item-info {
+  flex: 1 1 0%;
+  margin-top: 8px;
+}

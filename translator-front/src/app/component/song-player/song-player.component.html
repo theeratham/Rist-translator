@@ -1,0 +1,107 @@
+<audio
+  [src]="song?.filePath"
+  id="audio-player-player"
+  (timeupdate)="updateTrackTime()"
+  #audioPlayer
+></audio>
+<div class="music-player" *ngIf="song !== null">
+  <div class="song-desc my-left">
+    <img [src]="song?.picturePath" alt="album cover" class="album-cover-img" />
+
+    <div class="player-info">
+      <div class="player-info-name">{{ song?.name }}</div>
+      <div class="player-info-artist">
+        <a class="text-white" [routerLink]="'/artist/' + song?.artist?.id">{{
+          song?.artist?.name
+        }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="my-center">
+    <div class="song_control-left_button_cont">
+      <button (click)="playPreviousSong()">
+        <i class="bi text-white bi-skip-start-fill" style="font-size: 2rem"></i>
+      </button>
+      <div>
+        <button (click)="togglePlayPause()" class="song-control-playpause">
+          <i
+            *ngIf="!isPlaying"
+            class="bi bi-play-fill"
+            style="font-size: 2rem; transform: translateX(1.5px)"
+          ></i>
+          <i
+            *ngIf="isPlaying"
+            class="bi bi-pause-fill"
+            style="font-size: 2rem"
+          ></i>
+        </button>
+      </div>
+      <button (click)="playNextSong()">
+        <i class="bi text-white bi-skip-end-fill" style="font-size: 2rem"></i>
+      </button>
+    </div>
+    <div
+      class="song-progress-full"
+      #songProgress
+      (click)="songProgressUpdate($event)"
+    >
+      <div id="song-progress-progress" class="song-progress-progress"></div>
+    </div>
+    <div class="song_duration_number">
+      <div class="song-time" *ngIf="!hideTime">
+        <span id="song-current-time">{{ songCurrentTime }}</span> /
+        <span id="song-duration">{{ songDuration }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="my-right">
+    <div class="popup-origin">
+      <button class="lyrics-button" (click)="toggleAddToPlaylistPopup()">
+        <i class="bi vol-icon bi-plus-square"></i>
+      </button>
+      <div [class]="popupShown ? 'popup popup-shown' : 'popup'">
+        <div class="bg-light">
+          <ul class="list-group">
+            <li class="list-group-item my-header font-weight-bold">
+              Add to...
+            </li>
+            <li
+              class="list-group-item d-flex my-listitem justify-content-between align-items-center"
+              *ngFor="let playlist of playlists"
+              (click)="toggleAddSongToPlaylist(playlist.id)"
+            >
+              {{ playlist.name }}
+              <span
+                *ngIf="hasSongInPlaylist(playlist.id)"
+                class="badge my-badge badge-pill"
+                ><i class="bi bi-check"></i
+              ></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="lyrics-button" (click)="toggleLyrics()">
+        <i class="bi vol-icon bi-list-nested"></i>
+      </button>
+    </div>
+    <div class="vol-control">
+      <!-- <i class="bi vol-icon bi-volume-mute"></i> -->
+      <!-- <i class="bi vol-icon bi-volume-off"></i> -->
+      <!-- <i class="bi vol-icon bi-volume-down"></i> -->
+      <i class="bi vol-icon bi-volume-up"></i>
+
+      <input
+        type="range"
+        class="player-volume"
+        style="--l: 1.5px; --s: 16px"
+        min="0"
+        max="1"
+        step="0.01"
+        [value]="volume"
+        (input)="setVolume($event)"
+      />
+    </div>
+  </div>
+</div>

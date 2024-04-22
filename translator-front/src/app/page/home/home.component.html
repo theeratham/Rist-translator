@@ -1,0 +1,21 @@
+<div class="container pt-5 home-full">
+  <h1 class="text-light">Hello {{ user?.username }}</h1>
+  <div class="songs_recommend-container text-light">
+    <album-recommend-container title="Artists" showAllHref="">
+      <ng-template #content>
+        <artist-recommend-item
+          *ngFor="let artist of artists"
+          [artist]="artist"
+        ></artist-recommend-item>
+      </ng-template>
+    </album-recommend-container>
+    <album-recommend-container title="Albums" showAllHref="">
+      <ng-template #content>
+        <album-recommend-item
+          *ngFor="let album of albums"
+          [album]="album"
+        ></album-recommend-item>
+      </ng-template>
+    </album-recommend-container>
+  </div>
+</div>

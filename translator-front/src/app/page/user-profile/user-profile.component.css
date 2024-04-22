@@ -1,0 +1,34 @@
+.btn {
+  border-radius: 40px;
+}
+
+.btn-primary {
+  background-color: #ebff00;
+  color: #000;
+}
+
+.profile-block {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.profile-upper-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 99999px;
+}
+
+.change-image-button {
+  border-radius: 99999px;
+  padding: 10px 16px;
+  margin: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  gap: 8px;
+  position: absolute;
+}
+
+.modal-content {
+  /* background: #282828; */
+}

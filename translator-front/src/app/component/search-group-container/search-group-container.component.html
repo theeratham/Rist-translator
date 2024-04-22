@@ -1,0 +1,14 @@
+<div class="search_group-container">
+  <h3 class="text-light my-text_small">
+    {{ title }}
+  </h3>
+  <div
+    [class]="
+      isColumnLayout
+        ? 'search_group-inner search_group-inner_is_column_layout'
+        : 'search_group-inner'
+    "
+  >
+    <ng-container *ngIf="content" [ngTemplateOutlet]="content"></ng-container>
+  </div>
+</div>

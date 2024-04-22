@@ -1,0 +1,185 @@
+<div class="primary-bg home-full">
+  <div class="container">
+    <div class="col">
+      <div class="row pt-3 justify-content-center">
+        <div class="position-relative">
+          <img
+            class="profile-upper-image"
+            src="https://i.pinimg.com/originals/15/6f/bb/156fbb01d3ec2f7ea869e06bf34351dc.jpg"
+          />
+          <label for="file" class="change-image-button btn btn-secondary">
+            <i class="bi bi-pencil-fill"></i><span>Edit</span>
+          </label>
+          <input
+            hidden
+            id="file"
+            name="file"
+            type="file"
+            (change)="fileChangeEvent($event)"
+          />
+        </div>
+      </div>
+      <div class="row pt-3 justify-content-center">
+        <div class="profile-block col-md-4 p-3">
+          <h4>User Profile</h4>
+          <p>Username: {{ username }}</p>
+          <p>Email: {{ email }}</p>
+          <p>Firstname: {{ firstname }}</p>
+          <p>Lastname: {{ lastname }}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <button type="button" class="rist-btn p-2" (click)="back()">
+                back
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="openModal('edit')"
+              >
+                edit
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button type="button" class="btn btn-danger" (click)="logout()">
+                logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img [src]="croppedImage" />
+</div>
+
+<div
+  bsModal
+  #modal="bs-modal"
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Edit image</h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          aria-label="Close"
+          (click)="closeModal('modal')"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="1"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded($event)"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal('modal')"
+        >
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary" (click)="cropFinished()">
+          Apply
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  bsModal
+  #editModal="bs-modal"
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  role="dialog"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Profile</h5>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="closeModal('edit')"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            [(ngModel)]="request.username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Email"
+            [(ngModel)]="request.email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstname">Firstname:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            placeholder="Firstname"
+            [(ngModel)]="request.firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Lastname:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            placeholder="Lastname"
+            [(ngModel)]="request.lastname"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal('edit')"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="editProfile()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

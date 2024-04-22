@@ -1,0 +1,34 @@
+<div class="home-full">
+  <div
+    class="artist_header text-light"
+    [style]="'background: url(' + album?.picturePath + ')'"
+  >
+    <div class="bgfilter">
+      <div class="before_name_gap"></div>
+      <div class="my_flex container">
+        <img class="album_img" [src]="album?.picturePath" [alt]="album?.name" />
+        <div class="">
+          Album
+          <h1 class="album_name">{{ album?.name }}</h1>
+          <h3>
+            <a class="text-light" [routerLink]="'/artist/' + artist?.id">{{
+              artist?.name
+            }}</a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-light">
+    <div>
+      <div class="my_listing-container pt-4">
+        <song-listing-item
+          *ngFor="let song of songs; let i = index"
+          (playButtonpressedEvent)="handleSongListPlayEvent(i)"
+          [index]="i + 1"
+          [song]="song"
+        ></song-listing-item>
+      </div>
+    </div>
+  </div>
+</div>

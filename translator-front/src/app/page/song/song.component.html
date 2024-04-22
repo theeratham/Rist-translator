@@ -1,0 +1,373 @@
+<div class="container mt-5 home-full">
+  <h1 class="text-light">All Song</h1>
+  <button type="button" class="rist-btn mr-2 p-2" (click)="openModal('artist')">
+    Add Artist
+  </button>
+  <button type="button" class="rist-btn mr-2 p-2" (click)="openModal('album')">
+    Add Album
+  </button>
+  <button type="button" class="rist-btn mb-3 p-2" (click)="openModal('lyrics')">
+    Add Lyrics
+  </button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-light">#</th>
+        <th class="text-light">Title</th>
+        <th class="text-light">Artist</th>
+        <th class="text-light">Album</th>
+        <th class="text-light">Duration</th>
+        <th>
+          <button
+            type="button"
+            class="form-control btn-primary"
+            (click)="openModal('song')"
+          >
+            Add
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let song of songs; let i = index">
+        <td class="text-light">{{ i + 1 }}</td>
+        <td class="text-light">{{ song.name }}</td>
+        <td class="text-light">{{ song.artist.name }}</td>
+        <td class="text-light">{{ song.album.name }}</td>
+        <td class="text-light">{{ song.duration }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  bsModal
+  #SongModal="bs-modal"
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+  [config]="{ backdrop: 'static' }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Add Song</h5>
+        <button
+          type="button"
+          class="close"
+          (click)="closeModal('song')"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="song_file">Song File:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="song_file"
+            (change)="onSongSongFileChange($event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pic_file">Picture File:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="ng_pic_file"
+            (change)="onSongPicFileChange($event)"
+          />
+        </div>
+        <div class="form-group">
+          <label for="album_id">Album:</label>
+          <select [(ngModel)]="songAlbumId" class="form-control">
+            <option disabled selected value>-- select an album --</option>
+            <option
+              *ngFor="let album of songAddAlbums"
+              [value]="album.id"
+              [ngValue]="album.id"
+            >
+              {{ album.name }} - {{ album.id }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="artist-id">Artist:</label>
+          <select [(ngModel)]="songArtistId" class="form-control">
+            <option disabled selected value>-- select an artist --</option>
+            <option
+              *ngFor="let artist of songAddArtists"
+              [value]="artist.id"
+              [ngValue]="artist.id"
+            >
+              {{ artist.name }} - {{ artist.id }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="album_id">Lyrics:</label>
+          <select [(ngModel)]="songLyricsId" class="form-control">
+            <option disabled selected value>-- select a lyric --</option>
+            <option
+              *ngFor="let lyrics of songAddLyrics"
+              [disabled]="lyrics.song !== null"
+              [value]="lyrics.id"
+              [ngValue]="lyrics.id"
+            >
+              {{ lyrics.name }} - {{ lyrics.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal('song')"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createSong()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  bsModal
+  #ArtistModal="bs-modal"
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+  [config]="{ backdrop: 'static' }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Add Artist</h5>
+        <button
+          type="button"
+          class="close"
+          (click)="closeModal('artist')"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="artist_name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="artist_name"
+            [(ngModel)]="artistName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            class="form-control"
+            name="description"
+            id="description"
+            [(ngModel)]="description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pic_file">Picture File:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="artist_pic_file"
+            (change)="onArtistFileChange($event)"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal('artist')"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createArtist()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  bsModal
+  #AlbumModal="bs-modal"
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+  [config]="{ backdrop: 'static' }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Add Album</h5>
+        <button
+          type="button"
+          class="close"
+          (click)="closeModal('album')"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="album_name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="album_name"
+            [(ngModel)]="albumName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="year">Released year:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="year"
+            [(ngModel)]="albumYear"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pic_file">Picture File</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="album_pic_file"
+            (change)="onAlbumFileChange($event)"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal('album')"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createAlbum()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  bsModal
+  #LyricsModal="bs-modal"
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  role="dialog"
+  [config]="{ backdrop: 'static' }"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal">Add Lyrics</h5>
+        <button
+          type="button"
+          class="close"
+          (click)="closeModal('lyrics')"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="lyrics">Spotify Song Id:</label>
+          <input
+            class="form-control"
+            id="spotify-id"
+            [(ngModel)]="spotifyLyricsId"
+          />
+        </div>
+        <button role="button" class="form-control" (click)="getSpotifyLyrics()">
+          get Lyrics
+        </button>
+        <hr />
+        <div class="">
+          <div class="form-group">
+            <label for="lyrics-song-name">Song name:</label>
+            <input
+              type="text"
+              name="lyrics-song-name"
+              id="lyrics-song-name"
+              class="form-control"
+              [(ngModel)]="lyricSongName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lyrics">Lyrics:</label>
+            <table class="table table-light">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ms</th>
+                  <th scope="col">Original</th>
+                  <th scope="col">Ai Gen.</th>
+                  <th scope="col">Copy</th>
+                  <th scope="col">Translated</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lyricLine of editingLyrics; let i = index">
+                  <th scope="row">{{ lyricLine.original.startTimeMs }}</th>
+                  <td>{{ lyricLine.original.words }}</td>
+                  <td>
+                    {{ lyricLine?.ai?.words }}
+                  </td>
+                  <td>
+                    <button
+                      role="button"
+                      class="form-control"
+                      (click)="copyLyrics(i)"
+                    >
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <input
+                      class="form-control"
+                      [name]="'lyric-' + i"
+                      [ngModel]="lyricLine?.translated?.words"
+                      (input)="updateLyrics(i, $event)"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeModal('lyrics')"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="createLyrics()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

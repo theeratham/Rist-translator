@@ -1,0 +1,29 @@
+.linkflex > h3 {
+  flex: 1 1 0%;
+}
+
+.show_all_link {
+  text-decoration: none;
+}
+
+.show_all_link:hover {
+  text-decoration: underline;
+}
+
+.header_link {
+  text-decoration: none;
+}
+
+.header_link:hover {
+  text-decoration: underline;
+}
+
+.album_recommend-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.linkflex {
+  display: flex;
+  align-items: center;
+}

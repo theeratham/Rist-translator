@@ -1,0 +1,33 @@
+.playlist-card {
+  display: flex;
+  border: 1px solid #e1e1e1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); */
+}
+
+.add_item > i {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.add_item {
+  width: 160px;
+  height: 210px;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.add_item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

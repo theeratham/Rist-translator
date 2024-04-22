@@ -1,0 +1,21 @@
+.linkflex {
+  display: flex;
+  align-items: center;
+}
+
+.my-text_small {
+  font-size: 1.25rem;
+}
+
+.search_group-inner {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 8px;
+}
+
+.search_group-inner_is_column_layout {
+  flex-direction: column;
+  gap: 2px;
+}

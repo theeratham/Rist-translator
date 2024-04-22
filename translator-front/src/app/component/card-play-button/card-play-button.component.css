@@ -1,0 +1,14 @@
+button.song-control-playpause {
+  background: #e8fc09;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10000px;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+}
+
+button.song-control-playpause > i {
+  transform: translateX(1.5px);
+}

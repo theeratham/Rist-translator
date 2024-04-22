@@ -1,0 +1,23 @@
+.artist_header {
+  height: 30vh;
+  background: url(https://yt3.googleusercontent.com/5YcF-a7ySKsk139SBaaPI-91ZHtkCFlcZi4AIOnUFM6oA0Pcn92GzOFedaAcIwjDQkQyyOK56w=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj);
+}
+
+.before_name_gap {
+  height: 12vh;
+}
+
+.my_flex {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.artist_img {
+  height: 14vh;
+  border-radius: 99999999999999px;
+}
+
+.artist_name {
+  width: fit-content;
+}

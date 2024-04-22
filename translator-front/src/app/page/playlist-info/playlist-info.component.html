@@ -1,0 +1,29 @@
+<div class="home-full">
+  <div
+    class="artist_header text-light"
+    [style]="'background: url(' + playlistImage + ')'"
+  >
+    <div class="bgfilter">
+      <div class="before_name_gap"></div>
+      <div class="my_flex container">
+        <img class="album_img" [src]="playlistImage" [alt]="playlist?.name" />
+        <div class="">
+          Playlist
+          <h1 class="album_name">{{ playlist?.name }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-light">
+    <div>
+      <div class="my_listing-container pt-4">
+        <song-listing-item
+          *ngFor="let song of playlist?.songs; let i = index"
+          (playButtonPressedEvent)="handleSongListPlayEvent(i)"
+          [index]="i + 1"
+          [song]="song"
+        ></song-listing-item>
+      </div>
+    </div>
+  </div>
+</div>

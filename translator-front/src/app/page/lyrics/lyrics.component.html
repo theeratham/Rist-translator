@@ -1,0 +1,18 @@
+<div class="home-full bg-colored">
+  <div class="lyrics-pair-conatainer container mt-5 mb-5">
+    <div
+      [class]="
+        line.original.startTimeMs <= currentTime
+          ? 'lyrics-pair lyrics-past'
+          : 'lyrics-pair'
+      "
+      *ngFor="let line of lyricsPaired"
+      (click)="handleLyricsClick(line.original.startTimeMs)"
+    >
+      <div class="lyrics">{{ line.original.words }}</div>
+      <div class="lyrics">{{ line.translated.words }}</div>
+    </div>
+  </div>
+  <div class="startblur"></div>
+  <div class="endblur"></div>
+</div>

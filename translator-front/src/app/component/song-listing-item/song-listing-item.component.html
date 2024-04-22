@@ -1,0 +1,11 @@
+<div class="my_listing text-light">
+  <div class="my_listing-index">{{ index }}</div>
+  <button class="my_listing-play_button" (click)="playButtonPressed()">
+    ⏵
+  </button>
+  <img class="my_listing-img" [src]="songImageSrc" alt="" />
+  <div class="my_listing-name">{{ songName }}</div>
+  <div class="my_listing-duration">
+    {{ songDurationText }}
+  </div>
+</div>
